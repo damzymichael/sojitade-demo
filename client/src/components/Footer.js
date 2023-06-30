@@ -25,7 +25,7 @@ const Footer = () => {
   };
   return (
     <div>
-      <Typography align="center" variant="h5" fontWeight="600" mb={4}>
+      <Typography align="center" variant="h5" fontWeight="600" mb={2}>
         Check us out on our handles
       </Typography>
       <Stack
@@ -33,7 +33,7 @@ const Footer = () => {
         justifyContent="center"
         alignItems="center"
         spacing={5}
-        mb={1}
+        mb={3}
       >
         <Box display="flex" gap={2} sx={footerBox}>
           <Sensors color="secondary" /> <Facebook color="secondary" />
