@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Karma:wght@300;400;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h3 {
+  span {
+    color: #3101d0;
+  }
+}
+
+.sojitade {
+  h2 {
+    display: inline-block;
+  }
+}
+img[alt="design"] {
+  display: block;
+  margin: 0 auto;
+}
+.about-us {
+  margin-bottom: 7rem;
+}
+.modalImage {
+  display: block;
+  width: 85%;
+  margin: 0 auto 10px;
+}
+.showLink {
+  display: block;
+  width: 100px;
+  text-decoration: none;
+  color: red;
+  margin: 0 auto 2rem;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.color-test {
+  color: #c5c5c54d;
+}
