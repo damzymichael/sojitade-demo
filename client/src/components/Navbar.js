@@ -3,15 +3,16 @@ import { Toolbar, Stack, Divider } from "@mui/material";
 import { Drawer, CssBaseline } from "@mui/material";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/system";
+import { navInfoPlus } from "../assets/nav";
 
 const drawerWidth = 240;
 const Navbar = ({ mobileOpen, handleDrawerToggle }) => {
-  const NavLink = styled(Link)(({theme}) => ({
-    display: 'block',
-    textDecoration: 'none',
+  const NavLink = styled(Link)(({ theme }) => ({
+    display: "block",
+    textDecoration: "none",
     color: theme.palette.primary.main,
-    padding: '10px 15px'
-  }))
+    padding: "10px 15px",
+  }));
   return (
     <Drawer
       width={drawerWidth}
@@ -32,15 +33,13 @@ const Navbar = ({ mobileOpen, handleDrawerToggle }) => {
     >
       <Toolbar />
       <Stack>
-        {["Home", "About us", "Events", "Contact us", "Login", "Signup"].map(
-          (link) => (
-            <div key={link}>
-              <Divider />
-              <CssBaseline />
-              <NavLink to="#">{link}</NavLink>
-            </div>
-          )
-        )}
+        {navInfoPlus.map((link) => (
+          <div key={link.name}>
+            <Divider />
+            <CssBaseline />
+            <NavLink to="#">{link.name}</NavLink>
+          </div>
+        ))}
       </Stack>
     </Drawer>
   );

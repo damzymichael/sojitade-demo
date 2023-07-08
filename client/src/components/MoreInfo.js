@@ -5,9 +5,8 @@ import { modalStyle } from "../assets/styles";
 import { MyLink } from "../assets/styles";
 import { useTheme } from "@emotion/react";
 
-const MoreInfo = ({ currentItem, setModalOpen }) => {
+const MoreInfo = ({ currentItem, toggleModal }) => {
   const theme = useTheme();
-  console.log(currentItem);
   const iconStyle = {
     position: "absolute",
     top: "-10px",
@@ -18,21 +17,21 @@ const MoreInfo = ({ currentItem, setModalOpen }) => {
       <Stack sx={{ position: "relative" }}>
         <IconButton
           color={theme.palette.secondary.light}
-          onClick={() => setModalOpen(false)}
+          onClick={toggleModal}
           sx={iconStyle}
         >
           <HighlightOff color="secondary" />
         </IconButton>
         <Typography variant="h6" align="center">
-          {currentItem.title}
+          {currentItem?.title}
         </Typography>
         <img
-          src={currentItem.image}
-          alt={`${currentItem.title}`}
+          src={currentItem?.image}
+          alt={`${currentItem?.title}`}
           className="modalImage"
         />
         <Typography variant="subtitle1" fontSize={14} align="center">
-          {currentItem.content}
+          {currentItem?.content}
         </Typography>
         <MyLink>Visit our Instgram Page</MyLink>
       </Stack>

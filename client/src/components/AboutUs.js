@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import svg from "../images/soji-svg.png";
-import { Typography, Grid, Modal } from "@mui/material";
+import { Typography, Grid, Modal, Button } from "@mui/material";
 import { about_us } from "../assets/info";
-import { MyLink, svgSmallStyles, iconStyle } from "../assets/styles";
+import {  svgSmallStyles, iconStyle } from "../assets/styles";
 import { gridItem, gridContainer } from "../assets/styles";
 import MoreInfo from "./MoreInfo";
 
 const AboutUs = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modal, setModal] = useState(false);
   const [currentItem, setCurrentItem] = useState(null);
-
+  const toggleModal = () => setModal(!modal);
   const displayModal = (item) => {
     setCurrentItem(item);
-    setModalOpen(true);
+    toggleModal();
   };
-
+  const MyBtn = (theme) => ({
+    textTransform: "none",
+    textDecoration: "underline",
+    color: `${theme.palette.secondary.main}`,
+  });
   return (
     <div className="about-us">
-      <Typography align="center" variant="h4">
+      <Typography align="center" variant="h4" mt={4}>
         About Us
       </Typography>
       <img src={svg} alt="svg" style={svgSmallStyles} />
@@ -35,15 +39,16 @@ const AboutUs = () => {
             <Typography align="center" mb={5}>
               {item.description}
             </Typography>
-            <MyLink to="#" onClick={() => displayModal(item)}>
+            <Button onClick={() => displayModal(item)} sx={MyBtn}>
               View More Details
-            </MyLink>
+            </Button>
           </Grid>
         ))}
       </Grid>
-      <Modal open={modalOpen}>
+
+      <Modal open={modal} onClose={toggleModal}>
         <div>
-          <MoreInfo currentItem={currentItem} setModalOpen={setModalOpen} />
+          <MoreInfo currentItem={currentItem} toggleModal={toggleModal} />
         </div>
       </Modal>
     </div>

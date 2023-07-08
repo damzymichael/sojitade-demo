@@ -1,11 +1,12 @@
 import React from "react";
 import { news } from "../assets/info";
 import { newsGridContainer, newsGridItem, NewsLink } from "../assets/styles";
-import { Typography, Grid, IconButton } from "@mui/material";
+import { Typography, Grid, IconButton, Paper } from "@mui/material";
 import { ArrowBackIos } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import svg from "../images/soji-svg.png";
 import { svgSmallStyles } from "../assets/styles";
+import Handles from "../components/Handles";
 
 const News = () => {
   const newsToDisplay = news.map((newsItem, i) => ({
@@ -34,7 +35,13 @@ const News = () => {
 
       <Grid container sx={newsGridContainer}>
         {newsToDisplay.map((newsItem) => (
-          <Grid item key={newsItem.id} sx={newsGridItem}>
+          <Grid
+            item
+            key={newsItem.id}
+            sx={newsGridItem}
+            component={Paper}
+            elevation={10}
+          >
             <Typography variant="h6" color="secondary" fontWeight={600} mb={4}>
               {newsItem.title}
             </Typography>
@@ -45,6 +52,9 @@ const News = () => {
           </Grid>
         ))}
       </Grid>
+      <div style={{ background: "#c5c5c526", padding: "20px 0 10px" }}>
+        <Handles />
+      </div>
     </div>
   );
 };

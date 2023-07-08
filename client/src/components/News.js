@@ -4,7 +4,7 @@ import { svgSmallStyles, NewsLink } from "../assets/styles";
 import { newsGridItem, newsGridContainer } from "../assets/styles";
 import { news } from "../assets/info";
 import svg from "../images/soji-svg.png";
-import { Typography, Grid, Box } from "@mui/material";
+import { Typography, Grid, Box, Paper } from "@mui/material";
 
 const NewsMini = () => {
   const newsToDisplay = news.slice(0, 6).map((newsItem, i) => ({
@@ -19,7 +19,7 @@ const NewsMini = () => {
   };
   return (
     <div>
-      <Typography variant="h4" align="center">
+      <Typography variant="h4" align="center" mt={5}>
         Latest News
       </Typography>
       <img src={svg} alt="" style={svgSmallStyles} />
@@ -30,7 +30,13 @@ const NewsMini = () => {
       <Box sx={newsBox}>
         <Grid container sx={newsGridContainer}>
           {newsToDisplay.map((news) => (
-            <Grid item key={news.id} sx={newsGridItem}>
+            <Grid
+              item
+              key={news.id}
+              sx={newsGridItem}
+              component={Paper}
+              elevation={10}
+            >
               <Typography
                 variant="h6"
                 color="secondary"
@@ -40,7 +46,7 @@ const NewsMini = () => {
                 {news.title}
               </Typography>
               <Typography fontSize={16} mb={3}>
-                {news.newsContent} <NewsLink to='/news'>Read more</NewsLink>
+                {news.newsContent} <NewsLink to="/news">Read more</NewsLink>
               </Typography>
               <Typography color="secondary">{news.date}</Typography>
             </Grid>

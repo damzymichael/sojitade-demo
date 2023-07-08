@@ -5,6 +5,16 @@
   box-sizing: border-box;
 }
 
+.header{
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  margin-inline: auto;
+  opacity: 0.9;
+  background: #fff;
+  padding-inline: 20px;
+}
 h3 {
   span {
     color: #3101d0;
@@ -32,6 +42,7 @@ img[alt="design"] {
   display: block;
   width: 100px;
   text-decoration: none;
+  text-align: center;
   color: red;
   margin: 0 auto 2rem;
   &:hover {

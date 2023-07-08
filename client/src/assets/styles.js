@@ -81,22 +81,27 @@ export const NewsLink = styled(Link)(() => ({
 export const newsGridItem = {
   borderRadius: 2,
   width: {
-    xs: "45%",
+    xs: "90%",
+    xs_1: '45%',
     sm_2: "30%",
   },
   padding: {
-    xs: "10px 5px",
+    xs: "20px",
     sm: "2rem 1.5rem",
   },
 };
 
 export const newsGridContainer = {
-  width: "100%",
+  width: "96%",
+  margin: '0 auto',
   rowGap: 4,
   columnGap: {
     xs: 1,
     sm: 4,
   },
-  justifyContent: "center",
+  justifyContent: {
+    xs: 'center',
+    xs_1: 'space-between'
+  },
   paddingBlock: 4,
 };

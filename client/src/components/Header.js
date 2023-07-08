@@ -6,8 +6,9 @@ import { styled } from "@mui/system";
 import { Link } from "react-router-dom";
 import Logo from "../images/logo.jpg";
 import Navbar from "./Navbar";
+import { navInfo } from "../assets/nav";
 
-const Header = () => {
+const Header = ({children}) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -25,39 +26,44 @@ const Header = () => {
     },
   });
 
+  const headerStyles = {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  };
   return (
-    <Box
-      component="div"
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginTop: 1,
-      }}
-    >
-      <img src={Logo} alt="sojitade-logo" />
-      <Stack direction="row" spacing={{ sm: 0.5, md: 5 }} sx={breakpoint}>
-        {["Home", "About us", "Events", "Contact us"].map((link) => (
-          <Link to="#" key={link}>
-            <Btn variant="text">{link}</Btn>
-          </Link>
-        ))}
-      </Stack>
+    <>
+      <div className="header">
+        <Box sx={headerStyles}>
+          <img src={Logo} alt="sojitade-logo" height="50px" />
+          <Stack direction="row" spacing={{ sm: 0.5, md: 5 }} sx={breakpoint}>
+            {navInfo.map((link) => (
+              <Link to='#' key={link.name}>
+                <Btn variant="text">{link.name}</Btn>
+              </Link>
+            ))}
+          </Stack>
 
-      <Stack direction="row" spacing={0.7} sx={breakpoint}>
-        <Btn variant="outlined">Login</Btn>
-        <Btn variant="contained">Signup</Btn>
-      </Stack>
+          <Stack direction="row" spacing={0.7} sx={breakpoint}>
+            <Btn variant="outlined">Login</Btn>
+            <Btn variant="contained">Signup</Btn>
+          </Stack>
 
-      <IconButton
-        sx={{ display: { xs: "block", sm_2: "none" } }}
-        onClick={handleDrawerToggle}
-      >
-        <Menu color="primary" fontSize="large" />
-      </IconButton>
+          <IconButton
+            sx={{ display: { xs: "block", sm_2: "none" } }}
+            onClick={handleDrawerToggle}
+          >
+            <Menu color="primary" fontSize="large" />
+          </IconButton>
 
-      <Navbar mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
-    </Box>
+          <Navbar
+            mobileOpen={mobileOpen}
+            handleDrawerToggle={handleDrawerToggle}
+          />
+        </Box>
+      </div>
+      {children}
+    </>
   );
 };
 export default Header;
