@@ -26,6 +26,12 @@ h3 {
     display: inline-block;
   }
 }
+img {
+  background-color: gray;
+}
+.no-bg-color {
+  background-color: transparent;
+}
 img[alt='design'] {
   display: block;
   margin: 0 auto;
@@ -53,7 +59,7 @@ img[alt='design'] {
   color: #c5c5c54d;
 }
 
-//MENU ICON 
+//MENU ICON
 .menu {
   width: 20px;
   display: flex;

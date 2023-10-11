@@ -4,16 +4,17 @@ import {Drawer, CssBaseline, IconButton} from '@mui/material';
 import {Close} from '@mui/icons-material';
 import {Link as ScrollLink} from 'react-scroll';
 import {styled} from '@mui/system';
-import {navInfoPlus} from '../assets/nav';
+import {navInfoPlus} from '../data/nav';
 
 const drawerWidth = 240;
+export const NavLink = styled(ScrollLink)(({theme}) => ({
+  display: 'block',
+  textDecoration: 'none',
+  color: theme.palette.primary.main,
+  padding: '10px 15px'
+}));
+
 const Navbar = ({mobileOpen, handleDrawerToggle}) => {
-  const NavLink = styled(ScrollLink)(({theme}) => ({
-    display: 'block',
-    textDecoration: 'none',
-    color: theme.palette.primary.main,
-    padding: '10px 15px'
-  }));
   return (
     <Drawer
       width={drawerWidth}

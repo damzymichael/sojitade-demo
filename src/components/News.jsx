@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {svgSmallStyles, NewsLink} from '../assets/styles';
-import {newsGridItem, newsGridContainer} from '../assets/styles';
-import {news} from '../assets/info';
+import {svgSmallStyles, NewsLink} from '../data/styles';
+import {newsGridItem, newsGridContainer} from '../data/styles';
+import {news} from '../data/info';
 import svg from '../images/soji-svg.png';
 import {Typography, Grid, Box, Paper} from '@mui/material';
 
@@ -22,7 +22,7 @@ const NewsMini = () => {
       <Typography variant='h4' align='center' mt={5}>
         Latest News
       </Typography>
-      <img src={svg} alt='' style={svgSmallStyles} />
+      <img src={svg} alt='' style={svgSmallStyles} className='no-bg-color'/>
       <Typography align='center' mb={5}>
         As a non-governmental firm, Sojitade has taken a few <br />
         steps in the following areas.

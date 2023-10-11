@@ -1,11 +1,11 @@
 import React from 'react';
-import {news} from '../assets/info';
-import {newsGridContainer, newsGridItem, NewsLink} from '../assets/styles';
+import {news} from '../data/info';
+import {newsGridContainer, newsGridItem, NewsLink} from '../data/styles';
 import {Typography, Grid, IconButton, Paper} from '@mui/material';
 import {ArrowBackIos} from '@mui/icons-material';
 import {Link} from 'react-router-dom';
 import svg from '../images/soji-svg.png';
-import {svgSmallStyles} from '../assets/styles';
+import {svgSmallStyles} from '../data/styles';
 import Handles from '../components/Handles';
 
 const News = () => {
@@ -31,7 +31,7 @@ const News = () => {
       <Typography variant='h4' align='center' mt={-5}>
         Latest News
       </Typography>
-      <img src={svg} alt='' style={svgSmallStyles} />
+      <img src={svg} alt='' style={svgSmallStyles} className='no-bg-color'/>
 
       <Grid container sx={newsGridContainer}>
         {newsToDisplay.map(newsItem => (

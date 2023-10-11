@@ -1,8 +1,8 @@
 import React from 'react';
 import {Typography, IconButton, Box, Stack} from '@mui/material';
 import {HighlightOff} from '@mui/icons-material';
-import {modalStyle} from '../assets/styles';
-import {MyLink} from '../assets/styles';
+import {modalStyle} from '../data/styles';
+import {MyLink} from '../data/styles';
 import {useTheme} from '@emotion/react';
 
 const MoreInfo = ({currentItem, toggleModal}) => {

@@ -6,7 +6,8 @@ import {styled} from '@mui/system';
 import {Link} from 'react-router-dom';
 import Logo from '../images/logo.jpg';
 import Navbar from './Navbar';
-import {navInfo} from '../assets/nav';
+import {navInfo} from '../data/nav';
+import {NavLink} from './Navbar';
 
 const Header = ({children}) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -37,10 +38,13 @@ const Header = ({children}) => {
         <Box sx={headerStyles}>
           <img src={Logo} alt='sojitade-logo' height='50px' />
           <Stack direction='row' spacing={{sm: 0.5, md: 5}} sx={breakpoint}>
-            {navInfo.map(link => (
-              <Link to='#' key={link.name}>
+            {navInfo.map((link, i) => (
+              <NavLink
+                to={link.to}
+                key={i}
+                onClick={() => link.action && link.action()}>
                 <Btn variant='text'>{link.name}</Btn>
-              </Link>
+              </NavLink>
             ))}
           </Stack>
 

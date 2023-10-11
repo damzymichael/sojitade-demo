@@ -24,7 +24,7 @@ const Hero = () => {
       <Typography variant='h3' align='center' mt={8} mb={1} fontWeight='bold'>
         <span>Sojitade</span> Foundation
       </Typography>
-      <img src={svg} alt='design' />
+      <img src={svg} alt='design' className='no-bg-color'/>
       <Typography align='center' variant='h6'>
         Welcome To Our Official Homepage, Here Are Our Core <br /> Areas of
         Attention

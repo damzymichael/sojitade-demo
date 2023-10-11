@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import svg from '../images/soji-svg.png';
 import {Typography, Grid, Modal, Button} from '@mui/material';
-import {about_us} from '../assets/info';
-import {svgSmallStyles, iconStyle} from '../assets/styles';
-import {gridItem, gridContainer} from '../assets/styles';
+import {about_us} from '../data/info';
+import {svgSmallStyles, iconStyle} from '../data/styles';
+import {gridItem, gridContainer} from '../data/styles';
 import MoreInfo from './MoreInfo';
 
 const AboutUs = () => {
@@ -24,7 +24,7 @@ const AboutUs = () => {
       <Typography align='center' variant='h4' mt={4}>
         About Us
       </Typography>
-      <img src={svg} alt='svg' style={svgSmallStyles} />
+      <img src={svg} alt='svg' style={svgSmallStyles} className='no-bg-color' />
       <Typography align='center' variant='h5' mb={12}>
         Welcome To Our Official Homepage, Here Are Our Core <br />
         Areas of Attention
