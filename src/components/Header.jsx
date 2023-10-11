@@ -52,7 +52,13 @@ const Header = ({children}) => {
           <IconButton
             sx={{display: {xs: 'block', sm_2: 'none'}}}
             onClick={handleDrawerToggle}>
-            <Menu color='primary' fontSize='large' />
+            {/* <Menu color='primary' fontSize='large' /> */}
+            <div className='menu'>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </IconButton>
 
           <Navbar

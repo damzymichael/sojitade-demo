@@ -1,13 +1,14 @@
 import React from 'react';
 import {Toolbar, Stack, Divider} from '@mui/material';
-import {Drawer, CssBaseline} from '@mui/material';
-import {Link} from 'react-router-dom';
+import {Drawer, CssBaseline, IconButton} from '@mui/material';
+import {Close} from '@mui/icons-material';
+import {Link as ScrollLink} from 'react-scroll';
 import {styled} from '@mui/system';
 import {navInfoPlus} from '../assets/nav';
 
 const drawerWidth = 240;
 const Navbar = ({mobileOpen, handleDrawerToggle}) => {
-  const NavLink = styled(Link)(({theme}) => ({
+  const NavLink = styled(ScrollLink)(({theme}) => ({
     display: 'block',
     textDecoration: 'none',
     color: theme.palette.primary.main,
@@ -19,6 +20,7 @@ const Navbar = ({mobileOpen, handleDrawerToggle}) => {
       variant='temporary'
       open={mobileOpen}
       onClose={handleDrawerToggle}
+      anchor='right'
       ModalProps={{
         keepMounted: true
       }}
@@ -28,15 +30,26 @@ const Navbar = ({mobileOpen, handleDrawerToggle}) => {
           boxSizing: 'border-box',
           width: drawerWidth
         }
-      }}
-      anchor='right'>
-      <Toolbar />
+      }}>
+      <div>
+        <IconButton onClick={handleDrawerToggle}>
+          <Close fontSize='large' color='#000' />
+        </IconButton>
+      </div>
+      <Toolbar sx={{minHeight: 20}} />
       <Stack>
         {navInfoPlus.map(link => (
           <div key={link.name}>
             <Divider />
             <CssBaseline />
-            <NavLink to='#'>{link.name}</NavLink>
+            <NavLink
+              to={link.to}
+              onClick={() => {
+                link.action && link.action();
+                handleDrawerToggle();
+              }}>
+              {link.name}
+            </NavLink>
           </div>
         ))}
       </Stack>

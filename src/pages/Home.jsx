@@ -1,4 +1,5 @@
 import React from 'react';
+import {Element} from 'react-scroll';
 import Hero from '../components/Hero';
 import AboutUs from '../components/AboutUs';
 import NewsMini from '../components/News';
@@ -10,10 +11,16 @@ function Home() {
     <Container maxWidth='lg'>
       <Hero />
       <hr />
-      <AboutUs />
+      <Element name='about-us'>
+        <AboutUs />
+      </Element>
       <hr />
-      <NewsMini />
-      <Footer />
+      <Element name='events'>
+        <NewsMini />
+      </Element>
+      <Element name='contact-us'>
+        <Footer />
+      </Element>
     </Container>
   );
 }

@@ -20,7 +20,7 @@ const AboutUs = () => {
     color: `${theme.palette.secondary.main}`
   });
   return (
-    <div className='about-us'>
+    <div className='about-us' id='about-us'>
       <Typography align='center' variant='h4' mt={4}>
         About Us
       </Typography>
