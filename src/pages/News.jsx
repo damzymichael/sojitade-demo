@@ -7,8 +7,10 @@ import {Link} from 'react-router-dom';
 import svg from '../images/soji-svg.png';
 import {svgSmallStyles} from '../data/styles';
 import Handles from '../components/Handles';
+import useFadeInView from '../hooks/useFadeInView';
 
 const News = () => {
+  const {containerRef, GrowEl} = useFadeInView();
   const newsToDisplay = news.map((newsItem, i) => ({
     ...newsItem,
     id: i + 1
@@ -31,24 +33,25 @@ const News = () => {
       <Typography variant='h4' align='center' mt={-5}>
         Latest News
       </Typography>
-      <img src={svg} alt='' style={svgSmallStyles} className='no-bg-color'/>
+      <img src={svg} alt='' style={svgSmallStyles} className='no-bg-color' />
 
-      <Grid container sx={newsGridContainer}>
-        {newsToDisplay.map(newsItem => (
-          <Grid
-            item
-            key={newsItem.id}
-            sx={newsGridItem}
-            component={Paper}
-            elevation={10}>
-            <Typography variant='h6' color='secondary' fontWeight={600} mb={4}>
-              {newsItem.title}
-            </Typography>
-            <Typography fontSize={16} mb={3}>
-              {newsItem.newsContent} <NewsLink>Read more</NewsLink>
-            </Typography>
-            <Typography color='secondary'>{newsItem.date}</Typography>
-          </Grid>
+      <Grid container sx={newsGridContainer} ref={containerRef}>
+        {newsToDisplay.map((newsItem, i) => (
+          <GrowEl key={newsItem.id} i={i}>
+            <Grid item sx={newsGridItem} component={Paper} elevation={10}>
+              <Typography
+                variant='h6'
+                color='secondary'
+                fontWeight={600}
+                mb={4}>
+                {newsItem.title}
+              </Typography>
+              <Typography fontSize={16} mb={3}>
+                {newsItem.newsContent} <NewsLink>Read more</NewsLink>
+              </Typography>
+              <Typography color='secondary'>{newsItem.date}</Typography>
+            </Grid>
+          </GrowEl>
         ))}
       </Grid>
       <div style={{background: '#c5c5c526', padding: '20px 0 10px'}}>
